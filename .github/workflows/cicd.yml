@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   getting_details:
-    if: ${{ github.event_name != 'workflow_dispatch' || inputs.start_build }}
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.start_build == true }}
     runs-on: ubuntu-latest
 
     steps:
