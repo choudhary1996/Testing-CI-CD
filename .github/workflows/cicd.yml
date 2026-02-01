@@ -3,7 +3,7 @@ name: CICD Testing
 on:
   workflow_dispatch:
     inputs:
-#      start_build:
+      start_build:
         description: "Start Build"
         required: true
         type: boolean
@@ -23,3 +23,9 @@ jobs:
 
       - name: Print branch or ref
         run: echo "Hello World"
+
+      - name: Print Github Variable
+        run: |
+         echo "${{ github.workflow }}"
+         echo "${{ github.head_ref }}"
+         echo "${{ github.run_id }}"
