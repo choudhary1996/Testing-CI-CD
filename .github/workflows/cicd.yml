@@ -80,3 +80,8 @@ jobs:
       - name: Docker build
         run: |
           docker build -t ghcr.io/${{ github.repository }}:${{ needs.build.outputs.VERSION }}-qa -t ghcr.io/${{ github.repository }}:qa .
+
+      - name: Docker push
+        run: |
+          docker push ghcr.io/${{ github.repository }}:${{ needs.build.outputs.VERSION }}-qa
+          docker push ghcr.io/${{ github.repository }}:qa
