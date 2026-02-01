@@ -37,10 +37,14 @@ jobs:
           echo "TAG=$TAG" >> "$GITHUB_OUTPUT"
 
       - name: Print Version
-        run:  echo "${{ steps.meta.VERSION.output }}"
+        run: |
+         echo "${{ steps.meta.VERSION.output }}"
+         echo "$$VERSION"
 
       - name: Print TAG
-        run: echo "${{ steps.meta.TAG.output }}"
+        run:  |
+            echo "${{ steps.meta.TAG.output }}"
+            echo "$TAG"
         
         
 
