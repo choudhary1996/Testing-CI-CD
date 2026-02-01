@@ -38,13 +38,11 @@ jobs:
 
       - name: Print Version
         run: |
-         echo "${{ steps.meta.VERSION.output }}"
-         echo "$$VERSION"
+         echo "${{ steps.meta.output.VERSION }}"
 
       - name: Print TAG
         run:  |
-            echo "${{ steps.meta.TAG.output }}"
-            echo "$TAG"
+            echo "${{ steps.meta.output.TAG }}"
         
         
 
