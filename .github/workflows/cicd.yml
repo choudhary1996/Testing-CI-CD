@@ -29,3 +29,13 @@ jobs:
          echo "${{ github.workflow }}"
          echo "${{ github.head_ref }}"
          echo "${{ github.run_id }}"
+
+      - name: Determine tag name
+        id: tag
+        uses: ./.github/actions/get-tag-name
+
+      - name: Pack artifacts
+        id: pack_artifacts
+        run: |
+          cp LICENSE ./build/bin/
+          echo "${{ steps.tag.outputs.name }}"
