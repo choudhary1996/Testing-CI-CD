@@ -16,6 +16,9 @@ jobs:
   JOB1:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.start_build == true }}
     runs-on: ubuntu-latest
+    outputs:
+      VERSION: ${{ steps.meta.outputs.VERSION }}
+      TAG: ${{ steps.meta.outputs.TAG }}
 
     steps:
       - name: Checkout code
