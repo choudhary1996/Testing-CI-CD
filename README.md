@@ -1,3 +1,4 @@
-# Testing-CI-CD
-Testing CICD
-Adding Few line just to merge into main
+# Node Js CI File
+package.json should have a valid VERSION.
+Generate a GITHUB TOKEN With right Access and add as an Variable.
+Application supports Node Version 20.
