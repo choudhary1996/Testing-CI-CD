@@ -22,4 +22,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Print branch or ref
-        run: echo "Ref: ${{ github.head_ref || github.ref_name }}"
+        run: echo "Hello World"
