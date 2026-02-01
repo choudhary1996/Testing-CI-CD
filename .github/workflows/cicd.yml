@@ -52,5 +52,5 @@ jobs:
     steps:
       - name: PRINT TAG and VERSION
         run: |
-         echo "${{ steps.JOB1.outputs.VERSION }}"
-         echo "${{ steps.JOB1.outputs.TAG }}"
+         echo "${{ needs.JOB1.outputs.VERSION }}"
+         echo "${{ needs.JOB1.outputs.TAG }}"
