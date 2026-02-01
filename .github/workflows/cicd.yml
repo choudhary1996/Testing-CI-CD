@@ -1,18 +1,24 @@
 name: CICD Testing
-on: 
- workflow_dispatch:
-  inputs:
-   description: "Start Build"
-   required: true
-   type: boolean
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_build:
+        description: "Start Build"
+        required: true
+        type: boolean
+
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref && github.ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
-  jobs:
-   geting_details:
+
+jobs:
+  getting_details:
     runs-on: ubuntu-latest
-     steps:
-      - name: checkout code  
-        uses: actions/checkout@v6
-      - name: print details
-        run: ${{ github.head_ref || github.ref_name }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print branch or ref
+        run: echo "Ref: ${{ github.head_ref || github.ref_name }}"
